@@ -2,11 +2,11 @@ library(httr)
 library(anytime)
 library(tidyr)
 
-get_historical_ge_data = function(endpoint)
+get_historical_ge_data = function(item_name)
 {
-  endpoint0 = paste("exchange/history/rs/all?name=", endpoint, sep = "")
+  endpoint = paste("exchange/history/rs/all?name=", item_name, sep = "")
   
-  url = modify_url("https://api.weirdgloop.org/", path = endpoint0)
+  url = modify_url("https://api.weirdgloop.org/", path = endpoint)
   
   response = GET(url)
   
