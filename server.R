@@ -30,9 +30,12 @@ server <- function(input, output, session) {
       })
     
     output$ge_item_plot = renderPlot({
-      ggplot(item_price_data(), aes(x = timestamp, y = price)) +
-        geom_line()
-      })
+      tryCatch(
+        {ggplot(item_price_data(), aes(x = timestamp, y = price)) +
+        geom_line(color = "blue")},
+        error =  function(e) {""}
+      )
+    })
     
 }
 

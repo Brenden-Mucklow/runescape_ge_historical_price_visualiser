@@ -7,11 +7,15 @@ library(ggplot2)
 library(jsonlite)
 #================================================================
 
+tradeable_items = read.csv("all_items_tradeable.csv")
+
 ui <- fluidPage(
     titlePanel(title = h4("Runescape Grand Exchange Prices", align = "center")),
     sidebarLayout(
         sidebarPanel(
-            textInput(inputId = "item_name", label = "Item Name: "),
+            selectInput(inputId = "item_name", 
+                        label = "Item Name: ",
+                        choices = tradeable_items),
     
             dateRangeInput(inputId = "date_range", 
                            label = "Date Range", 
